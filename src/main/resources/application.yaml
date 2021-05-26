@@ -1,0 +1,6 @@
+server:
+  port: 9530
+
+spring:
+  application:
+    name: gray-light-gateway
