@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: gray-light-gateway
+  cloud:
+    zookeeper:
+      connect-string: zookeeper.gray-light.com:2181
+      config:
+        root: config
+  redis:
+    database: 2
+    timeout: 1000ms
+    host: redis.gray-light.com
+    port: 6379

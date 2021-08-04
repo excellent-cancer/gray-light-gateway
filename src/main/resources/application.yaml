@@ -1,6 +1,26 @@
 server:
   port: 9530
-
 spring:
-  application:
-    name: gray-light-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+    zookeeper:
+      discovery:
+        enabled: true
+management:
+  endpoint:
+    info:
+      enabled: true
+    health:
+      enabled: true
+      show-details: ALWAYS
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: gateway,redis,info,health
+
+
