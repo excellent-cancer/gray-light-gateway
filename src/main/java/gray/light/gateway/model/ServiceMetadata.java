@@ -10,9 +10,20 @@ import lombok.Data;
 @Data
 public class ServiceMetadata {
 
+    public static final String ROUTE_METADATA_KEY = "route.service-metadata";
+
     /**
      * 是否开启
      */
     private boolean enable;
 
+    /**
+     * 服务ID
+     */
+    private String serviceId;
+
+    /**
+     * 访问路径
+     */
+    private String accessPath;
 }
