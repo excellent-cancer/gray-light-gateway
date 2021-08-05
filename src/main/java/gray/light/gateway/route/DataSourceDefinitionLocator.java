@@ -23,7 +23,6 @@ public class DataSourceDefinitionLocator implements RouteDefinitionLocator {
 
     private final ReactiveRedisTemplate<String, ServiceMetadata> serviceMetadataTemplate;
 
-
     @Override
     public Flux<RouteDefinition> getRouteDefinitions() {
         return serviceMetadataTemplate
