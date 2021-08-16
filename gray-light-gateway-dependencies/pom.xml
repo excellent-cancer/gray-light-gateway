@@ -2,44 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>org.excellent-cancer</groupId>
         <artifactId>excellent-cancer-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath/>
     </parent>
-
-    <artifactId>gray-light-gateway</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
+    <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-    <modules>
-        <module>gray-light-gateway-application</module>
-        <module>gray-light-gateway-core</module>
-        <module>gray-light-gateway-dependencies</module>
-        <module>gray-light-gateway-definition</module>
-    </modules>
-
-    <properties>
-        <floor.version>2.0.0-SNAPSHOT</floor.version>
-    </properties>
+    <artifactId>gray-light-gateway-dependencies</artifactId>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.excellent-cancer</groupId>
-                <artifactId>floor-dependencies</artifactId>
-                <version>${floor.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <artifactId>gray-light-gateway-core</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.excellent-cancer</groupId>
-                <artifactId>gray-light-gateway-dependencies</artifactId>
+                <artifactId>gray-light-gateway-definition</artifactId>
                 <version>${project.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

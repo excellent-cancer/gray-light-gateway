@@ -1,7 +1,7 @@
-package gray.light.gateway.route;
+package gray.light.gateway.core.route;
 
-import gray.light.gateway.model.ServiceMetadata;
-import gray.light.gateway.properties.ServiceLocatorProperties;
+import gray.light.gateway.core.properties.ServiceLocatorProperties;
+import gray.light.gateway.definition.ServiceMetadata;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.FilterDefinition;
@@ -63,7 +63,7 @@ public class DataSourceDefinitionLocator implements RouteDefinitionLocator {
      * 构建路由
      *
      * @param serviceId 服务ID
-     * @param metadata 服务元数据
+     * @param metadata  服务元数据
      * @return 构建路由
      */
     private RouteDefinition buildRoute(String serviceId, ServiceMetadata metadata) {
@@ -87,8 +87,8 @@ public class DataSourceDefinitionLocator implements RouteDefinitionLocator {
      * 构建路由匹配
      *
      * @param routeDefinition 路由定义
-     * @param parser 共用正则编译器
-     * @param metadata 服务元数据
+     * @param parser          共用正则编译器
+     * @param metadata        服务元数据
      */
     private void buildRoutePredicates(RouteDefinition routeDefinition, SpelExpressionParser parser, ServiceMetadata metadata) {
         for (PredicateDefinition original : this.properties.getPredicates()) {
@@ -107,8 +107,8 @@ public class DataSourceDefinitionLocator implements RouteDefinitionLocator {
      * 构建路由过滤器
      *
      * @param routeDefinition 路由定义
-     * @param parser 共用正则编译器
-     * @param metadata 服务元数据
+     * @param parser          共用正则编译器
+     * @param metadata        服务元数据
      */
     private void buildRouteFilters(RouteDefinition routeDefinition, SpelExpressionParser parser, ServiceMetadata metadata) {
         for (FilterDefinition original : this.properties.getFilters()) {

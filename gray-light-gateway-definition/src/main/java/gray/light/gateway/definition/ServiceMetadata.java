@@ -1,4 +1,4 @@
-package gray.light.gateway.model;
+package gray.light.gateway.definition;
 
 import lombok.Data;
 

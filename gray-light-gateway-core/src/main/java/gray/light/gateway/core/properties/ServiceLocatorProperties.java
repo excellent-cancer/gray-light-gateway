@@ -1,4 +1,4 @@
-package gray.light.gateway.properties;
+package gray.light.gateway.core.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

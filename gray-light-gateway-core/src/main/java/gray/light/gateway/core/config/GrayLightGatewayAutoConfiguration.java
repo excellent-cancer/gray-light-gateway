@@ -1,8 +1,9 @@
-package gray.light.gateway.config;
+package gray.light.gateway.core.config;
 
 import floor.redis.serializer.RedisSerializationContexts;
-import gray.light.gateway.model.ServiceMetadata;
-import gray.light.gateway.properties.ServiceLocatorProperties;
+import gray.light.gateway.core.properties.ServiceLocatorProperties;
+import gray.light.gateway.definition.ServiceMetadata;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +14,7 @@ import org.springframework.session.data.redis.config.annotation.web.server.Enabl
 @Configuration
 @EnableRedisWebSession
 @EnableConfigurationProperties(ServiceLocatorProperties.class)
-public class GrayLightAutoConfiguration {
+public class GrayLightGatewayAutoConfiguration {
 
     public static final String REDIS_KEY_PREFIX = "gateway";
 
@@ -24,7 +25,9 @@ public class GrayLightAutoConfiguration {
      * @return 服务元数据redisTemplate
      */
     @Bean
+    @ConditionalOnBean(ReactiveRedisConnectionFactory.class)
     public ReactiveRedisTemplate<String, ServiceMetadata> serviceMetadataTemplate(ReactiveRedisConnectionFactory connectionFactory) {
         return new ReactiveRedisTemplate<>(connectionFactory, RedisSerializationContexts.withJackson2Json(REDIS_KEY_PREFIX, ServiceMetadata.class));
     }
+
 }

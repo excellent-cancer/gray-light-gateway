@@ -5,10 +5,10 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
+          enabled: false
     zookeeper:
       discovery:
-        enabled: true
+        enabled: false
 management:
   endpoint:
     info:
